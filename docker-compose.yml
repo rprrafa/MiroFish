@@ -1,6 +1,6 @@
 services:
   mirofish:
-    image: .
+    image: ghcr.nju.edu.cn/666ghj/mirofish:latest
     # 加速镜像（如拉取缓慢可替换上方地址）
     # image: ghcr.nju.edu.cn/666ghj/mirofish:latest
     container_name: mirofish
@@ -12,3 +12,4 @@ services:
     restart: unless-stopped
     volumes:
       - ./backend/uploads:/app/backend/uploads
+      - './vite.config.js:/app/vite.config.js'
