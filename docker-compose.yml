@@ -6,10 +6,17 @@ services:
     container_name: mirofish_startse
     env_file:
       - .env
-    ports:
-      - "3000:3000"
-      - "5001:5001"
     restart: unless-stopped
     volumes:
       - ./backend/uploads:/app/backend/uploads
       - ./frontend/vite.config-modified.js:/app/frontend/vite.config.js
+    labels:
+      - coolify.managed=true
+      - coolify.applicationId=75
+      - coolify.type=application
+      - traefik.enable=true
+      - traefik.http.routers.mirofish.rule=Host(`mirofish.coolify-dev.startse.com`)
+      - traefik.http.routers.mirofish.entrypoints=https
+      - traefik.http.routers.mirofish.tls=true
+      - traefik.http.routers.mirofish.tls.certresolver=letsencrypt
+      - traefik.http.services.mirofish.loadbalancer.server.port=3000
