@@ -3,7 +3,7 @@ services:
     image: ghcr.nju.edu.cn/666ghj/mirofish:latest
     # 加速镜像（如拉取缓慢可替换上方地址）
     # image: ghcr.nju.edu.cn/666ghj/mirofish:latest
-    container_name: mirofish
+    container_name: mirofish_startse
     env_file:
       - .env
     ports:
@@ -12,4 +12,4 @@ services:
     restart: unless-stopped
     volumes:
       - ./backend/uploads:/app/backend/uploads
-      - './frontend/vite.config-modified.js:/app/frontend/vite.config.js'
+      - ./frontend/vite.config-modified.js:/app/frontend/vite.config.js
