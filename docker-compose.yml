@@ -7,6 +7,9 @@ services:
     env_file:
       - .env
     restart: unless-stopped
+    ports:
+      - '3000:3000'
+      - '5001:5001'
     volumes:
       - ./backend/uploads:/app/backend/uploads
       - ./frontend/vite.config-modified.js:/app/frontend/vite.config.js
